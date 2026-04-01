@@ -1,0 +1,31 @@
+sudo apt update
+sudo apt install mariadb-server -y  //instala server
+
+sudo service mariadb start     //inicia server
+
+sudo mariadb  //ingreso a consola como admin, luego crear usuario
+
+CREATE USER 'bookstore_user'@'localhost' IDENTIFIED BY '12345'; 
+GRANT ALL PRIVILEGES ON bookstoredb.* TO 'bookstore_user'@'localhost'; 
+FLUSH PRIVILEGES; 
+SHOW GRANTS FOR 'bookstore_user'@'localhost'; 
+
+//crea usuario y da permisos sobre la base de datos indicada
+
+EXIT //salgo del usuario admin
+
+mysql -u User -p 
+password
+
+//inicia sesion con el usuario creado
+
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'bookstore_user'@'localhost';
+DROP USER IF EXISTS 'bookstore_user'@'localhost';
+DROP DATABASE IF EXISTS bookstoredb;
+FLUSH PRIVILEGES;
+
+// elimino usuarios y sus permisos 
+
+SELECT COLUMN_NAME, DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_NAME='Pacientes';
+
+//Ver estructura de una tabla desde el esquema de la bd
